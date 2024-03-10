@@ -9,7 +9,7 @@ phone [name]: View the phone number of a provided contact name
 
 all: View all contacts in the contact list
 
-add-birthday [name] [дата народження]: Add a birth date to the provided contact name
+add-birthday [name] [birth date]: Add a birth date to the provided contact name
 
 show-birthday [name]: Show birth date for the provided contact name
 
