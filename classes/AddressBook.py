@@ -68,6 +68,7 @@ class AddressBook(UserDict):
 
         for day, names in birthdays_per_week.items():
             print(f"{day}: {', '.join(names)}")
+        print(birthdays_per_week)
 
     def get_all_records(self):
         return iter(self.data.values())

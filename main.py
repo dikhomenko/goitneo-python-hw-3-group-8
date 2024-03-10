@@ -1,10 +1,11 @@
 from classes import AddressBook, Record, Name, Phone, Birthday
-from utils.hadlers import parse_input
+from utils.handlers import parse_input
+
 
 def main():
     print("Welcome to the assistant bot!")
     book = AddressBook()
-    file_path = "data/address_book_data.txt"
+    file_path = 'data/address_book_data.txt'
     book.load_from_file(file_path)
     while True:
         user_input = input("Enter a command: ")
@@ -21,29 +22,30 @@ def main():
             book.add_record(record)
         elif command == "change":
             name, new_phone = args
-            print(cbook.change_phone(name, new_phone))
+            print(book.change_phone(name, new_phone))
         elif command == "phone":
-            name = args
+            name, = args
             print(book.find_phone(name))
         elif command == "add-birthday":
             name, birthday = args
             record = book.find_record(name)
             if record:
                 record.add_birthday(birthday)
-                print(f"Birthday has been added to {name}")
+                print(f"Birthday added to {name}")
             else:
                 print(f"No record found for {name}")
         elif command == "show-birthday":
-            name = args
+            name, = args
             record = book.find_record(name)
             record.show_birthday()
         elif command == "birthdays":
             book.get_birthdays_per_week()
         elif command == "all":
             for record in book.get_all_records():
-                print(record)        
+                print(record)
         else:
             print("Invalid command.")
+
 
 if __name__ == "__main__":
     main()
